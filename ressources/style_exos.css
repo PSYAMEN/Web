@@ -1,0 +1,122 @@
+/*
+Nom du fichier:style_exos.css
+Date de creation:16/09/2026  16:34
+Createur: Nicolas de Brebisson
+Descritpion:
+Fichier cree pour styliser baseCSS.html
+*/
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5em;
+}
+header{
+    color:white;
+    background-color:darkgrey;
+    text-align: center;
+    font-size: 2em;
+    margin: 10px;
+    padding: 10px;
+}
+footer{
+    color:white;
+    background-color:darkgrey;
+    text-align: center;
+    margin: 5px;
+    padding: 10px;
+}
+section{
+    margin: 10px;
+}
+article{
+    margin: 10px;
+    padding: 10px;
+    border-width:2px;
+    border-style: dotted;
+    border-color: gray;
+}
+p{
+    margin: 10px;
+}
+h1{
+    text-align: center;
+    color:red;
+    font-size: 2em;
+    font-variant: small-caps;
+}
+h2{
+    margin:10px;
+    background-color: red;
+    border-left: 50px;
+    border-color:black;
+    border-left-style:solid;
+    text-transform: capitalize;
+}
+
+#info{
+    width:600px;
+    background-color: brown;
+    color:white;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.2em;
+    line-height: 2em;
+    padding: 10px;
+    margin: auto;
+}
+
+.documentation{
+    background-color: green;
+    color:white;
+    padding:10px;
+    a{
+        background-color: darkgreen;
+        color:greenyellow;
+        padding:5px;
+    }
+    a:hover{
+        background-color: lightgreen;
+        color: darkgreen;
+    }
+}
+
+.code{
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #eeeeee;
+    border-color: lightgray;
+    border-radius: 5px;
+    border:1px;
+    border-style: solid;
+}
+pre{
+    margin: 10px;
+}
+table{
+    width:100%;
+    margin:auto;
+    line-height: 2em;
+}
+tr:nth-child(even){
+    background-color: lightblue;
+}
+tr:last-child{
+    color:blue;
+}
+th{
+    background-color: darkblue;
+    color:white;
+    height: 3em;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    padding:10px;
+    text-align: center;
+}
+td{
+
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    padding:10px;
+    text-align: center;
+}
