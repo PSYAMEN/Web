@@ -4,23 +4,26 @@
 	<title>Exercices Javascript</title>
 	<meta charset="utf-8">
     <script src="functions.js"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 	<link rel="stylesheet" href="style.css">
 </head>
+
+
 <body id="body" onload="load()">
-    <h1>Ma liste des taches</h1>
-    <h2>Preference</h2>
-    <button onclick="setLightDark()">Mode sombre</button>
-    <button onclick="setEasyRead()">Lecture facilite</button> 
-    <h2>Ajouter une tache</h2>
-    <input type="text" id="NTache" name="NTache" placeholder="Ajouter une tache">
-    <button onclick="ajoutTache()">Ajouter</button >
-    <h2>Statistiques</h2>
-    <p id="total">Total : </p>
-    <p id="terminees">Terminees : </p>
-    <p id="restantes">Restantes : </p>
-    <h2>Mes taches</h2>
-    <p id="aucuneTache">aucune tache pour le moment</p>
-    <ul id="tachesAFaire"></ul>
-
-
+    <div>
+        <h1>Ma liste des taches</h1>
+        <h2>Preference</h2>
+        <button onclick="setLightDark()">Mode sombre</button>
+        <button onclick="setEasyRead()">Lecture facilite</button> 
+        <h2>Ajouter une tache</h2>
+        <input type="text" id="NTache" name="NTache" placeholder="Ajouter une tache">
+        <button onclick="ajoutTache()">Ajouter</button >
+        <h2>Statistiques</h2>
+        <p id="total">Total : </p>
+        <p id="terminees">Terminees : </p>
+        <p id="restantes">Restantes : </p>
+        <h2>Mes taches</h2>
+        <p id="aucuneTache">aucune tache pour le moment</p>
+        <ul id="tachesAFaire"></ul>
+    </div>
 </body>

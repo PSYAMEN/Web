@@ -1,6 +1,4 @@
 function load(){
-    listeTache();
-    updateStats();
     const theme=getCookie("themes");
     if(theme!=""){
         const allTheme=theme.split(' ')
@@ -8,6 +6,14 @@ function load(){
             document.getElementById("body").classList.add(allTheme[i]);
         }
     }
+
+    taches = JSON.parse(localStorage.getItem('taches'));
+    if (taches!=""){
+        document.getElementById("aucuneTache").innerHTML=""
+    }
+    
+    document.getElementById("tachesAFaire").innerHTML=taches;
+    updateStats();
 }
 
 
@@ -52,54 +58,33 @@ function getCookie(cname) {
   return "";
 }
 
-function listeTache(){
-    const data = getCookie("tachesAFaire");
-    const sortedData = data.split(',');
-    const list = document.getElementById("tachesAFaire");
-    while (list.hasChildNodes()) {
-      list.removeChild(list.firstChild);
-    }
-    if(data!=""){
-        for (let i = 0; i < sortedData.length; i++) {
-            const li = document.createElement("li");
-            li.innerText = sortedData[i];
-            list.appendChild(li);
-        }
-        if(sortedData.length!=0){
-            document.getElementById("aucuneTache").innerHTML=""
-        }
+function ajoutTache(){
+
+    document.getElementById("aucuneTache").innerHTML="";
+    const nouvelleTache=document.getElementById("NTache").value;
+    if(nouvelleTache!=""){
+        const list = document.getElementById("tachesAFaire");
+        const li = document.createElement("li");
+        li.innerText=nouvelleTache;
+
+        //const checkbox=document.createElement("input");
+        //checkbox.type="checkbox";
+        //checkbox.checked="true";
+        //li.appendChild(checkbox);
+        list.append(li);
+        saveData();
+        updateStats();
     }
 }
 
-function ajoutTache(){
-    const nouvelleTache=document.getElementById("NTache").value;
-    if(nouvelleTache!=""){
-        if(getCookie("tachesAFaire")==""){
-            document.cookie="tachesAFaire="+nouvelleTache;
-        }
-        else{
-            document.cookie="tachesAFaire="+getCookie("tachesAFaire")+","+nouvelleTache;
-        }
-    }
-    document.cookie="tachesAFaire=";
-    document.cookie="tachesFaites=";
-    listeTache();
-    updateStats();
+function saveData(){
+    //console.log(document.getElementById("tachesAFaire").innerHTML);
+
+    localStorage.setItem('taches',JSON.stringify(document.getElementById("tachesAFaire").innerHTML));
 }   
 
 function updateStats(){
-    const tachesAFaire=getCookie("tachesAFaire");
-    const tachesFaites=getCookie("tacheFaites");
-    let total=0;
-    let aFaire=0;
-    let fini=0;
-    if(tachesAFaire!=""){
-        tachesAFaire.split(',').forEach( element => {total++;aFaire++;});
-    }
-    if(tachesFaites!=""){
-        tachesFaites.split(',').forEach( element => {total++;fini++;});
-    }
-    document.getElementById("terminees").innerHTML=document.getElementById("terminees").innerHTML.split(':')[0]+": "+fini;
-    document.getElementById("total").innerHTML=document.getElementById("total").innerHTML.split(':')[0]+": "+total;
-    document.getElementById("restantes").innerHTML=document.getElementById("restantes").innerHTML.split(':')[0]+": "+aFaire;
+    document.getElementById("total").innerHTML=document.getElementById("total").innerHTML.split(':')[0]+": "+document.getElementById("tachesAFaire").getElementsByTagName("li").length 
+    document.getElementById("restantes").innerHTML=document.getElementById("restantes").innerHTML.split(':')[0]+": "+document.getElementById("tachesAFaire").getElementsByTagName("li").length 
+    document.getElementById("terminees").innerHTML=document.getElementById("terminees").innerHTML.split(':')[0]+": "+document.getElementById("tachesAFaire").getElementsByTagName("li").length;
 }
