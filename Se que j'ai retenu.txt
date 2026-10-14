@@ -1,0 +1,6 @@
+En html j ai pas apris grand chose cettais surtout un rappel de se que l on avair deja fait auparavent
+De meme pour le CSS
+
+En javascripte j ai eu une introduction au language mais a part la synthax j ai pas appris grand chose
+
+Les cookies etait nouveau et quelque'chose que je n avait jamais fait mais au final c'etait pas si compliquer de meme por le storage
